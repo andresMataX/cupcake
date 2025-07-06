@@ -1,4 +1,5 @@
 import { ClerkProvider } from '@clerk/clerk-react'
+import { neobrutalism } from '@clerk/themes'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
@@ -20,6 +21,10 @@ if (!rootElement.innerHTML) {
       <ClerkProvider
         publishableKey={CLERK_KEY}
         afterSignOutUrl="/"
+        appearance={{
+          baseTheme: neobrutalism,
+          variables: { colorPrimary: '#000' },
+        }}
       >
         <App />
       </ClerkProvider>
