@@ -1,24 +1,26 @@
-import { ClerkProvider } from '@clerk/clerk-react'
+import { useUser } from '@clerk/clerk-react'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { routeTree } from './routeTree.gen'
 
 const router = createRouter({
   routeTree,
+  context: { user: undefined! },
   defaultPreload: 'intent',
   defaultPreloadStaleTime: Infinity,
+  notFoundMode: 'root',
 })
 
-interface Props {
-  clerk_key: string
-}
+interface Props {}
 
-export const App: FC<Props> = ({ clerk_key }) => {
+export const App: FC<Props> = () => {
+  const user = useUser()
+
+  if (!user.isLoaded) return <></>
+
   return (
     <>
-      <ClerkProvider publishableKey={clerk_key} afterSignOutUrl='/'>
-        <RouterProvider router={router} />
-      </ClerkProvider>
+      <RouterProvider router={router} context={{ user }} />
     </>
   )
 }

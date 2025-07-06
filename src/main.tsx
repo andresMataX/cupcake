@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/clerk-react'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
@@ -16,7 +17,9 @@ if (!rootElement.innerHTML) {
 
   root.render(
     <StrictMode>
-      <App clerk_key={CLERK_KEY} />
+      <ClerkProvider publishableKey={CLERK_KEY} afterSignOutUrl='/'>
+        <App />
+      </ClerkProvider>
     </StrictMode>
   )
 }
