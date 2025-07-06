@@ -1,3 +1,4 @@
+import { TopBar } from '@/components/common'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/(app)/_app')({
@@ -12,5 +13,9 @@ export const Route = createFileRoute('/(app)/_app')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/(app)/_app"!</div>
+  return (
+    <main className="">
+      <TopBar />
+    </main>
+  )
 }
