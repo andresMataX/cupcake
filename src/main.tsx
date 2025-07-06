@@ -17,9 +17,12 @@ if (!rootElement.innerHTML) {
 
   root.render(
     <StrictMode>
-      <ClerkProvider publishableKey={CLERK_KEY} afterSignOutUrl='/'>
+      <ClerkProvider
+        publishableKey={CLERK_KEY}
+        afterSignOutUrl="/"
+      >
         <App />
       </ClerkProvider>
-    </StrictMode>
+    </StrictMode>,
   )
 }
