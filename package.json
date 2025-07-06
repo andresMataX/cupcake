@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build && cp CNAME dist/CNAME && cp dist/index.html dist/404.html",
-    "deploy": "npm run predeploy && gh-pages -d dist"
+    "deploy": "tsc -b && vite build && cp CNAME dist/CNAME && cp dist/index.html dist/404.html && gh-pages -d dist"
   },
   "dependencies": {
     "@clerk/clerk-react": "5.32.4",
