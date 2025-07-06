@@ -1,0 +1,43 @@
+version: '3'
+
+vars:
+  SHORT_SHA:
+    sh: git rev-parse --short HEAD
+
+dotenv: ['.env']
+
+tasks:
+  install:
+    desc: Install dependencies
+    cmds:
+      - npm ci
+
+  lint:
+    desc: Run ESLint
+    cmds:
+      - npm run lint
+
+  build:
+    desc: Build the project
+    cmds:
+      - npm run build
+
+  predeploy:
+    desc: Copy necessary files for deployment
+    cmds:
+      - cp CNAME dist/CNAME
+      - cp dist/index.html dist/404.html
+
+  deploy:
+    desc: Deploy the project to GitHub Pages
+    cmds:
+      - npm run deploy
+
+  default:
+    desc: Default task to run all tasks
+    cmds:
+      - task: install
+      - task: lint
+      - task: build
+      - task: predeploy
+      - task: deploy
