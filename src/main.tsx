@@ -1,19 +1,12 @@
-import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
+import { App } from './App'
 import './main.css'
-import { routeTree } from './routeTree.gen'
 
-const router = createRouter({
-  routeTree,
-  defaultPreload: 'intent',
-  defaultPreloadStaleTime: Infinity,
-})
+const CLERK_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
+if (!CLERK_KEY) {
+  throw new Error('Add your Clerk Publishable Key to the .env file')
 }
 
 const rootElement = document.getElementById('root')!
@@ -23,7 +16,7 @@ if (!rootElement.innerHTML) {
 
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <App clerk_key={CLERK_KEY} />
     </StrictMode>
   )
 }
