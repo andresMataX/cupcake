@@ -9,7 +9,9 @@
       "switch": "Change language"
     },
     "settings": "Settings",
-    "save": "Save"
+    "save": "Save",
+    "loading": "Please, wait...",
+    "error": "An error occurred while processing your request"
   },
   "app": {
     "profile": {

@@ -9,7 +9,9 @@
       "switch": "Cambiar idioma"
     },
     "settings": "Configuración",
-    "save": "Guardar"
+    "save": "Guardar",
+    "loading": "Por favor, espere...",
+    "error": "Ocurrió un error al procesar tu solicitud"
   },
   "app": {
     "profile": {
