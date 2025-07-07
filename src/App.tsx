@@ -38,9 +38,3 @@ declare module '@tanstack/react-router' {
     router: typeof router
   }
 }
-
-declare global {
-  interface Window {
-    Clerk: unknown
-  }
-}
