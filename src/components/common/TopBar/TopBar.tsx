@@ -14,9 +14,9 @@ export const TopBar: FC<Props> = () => {
           to="/"
           className="btn btn-primary"
         >
-          <span>Cupcake</span>
+          <GiCupcake className="icon-button" />
 
-          <GiCupcake className="size-5" />
+          <span>Cupcake</span>
         </Link>
 
         <UserButton>

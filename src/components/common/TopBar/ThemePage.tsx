@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import { type FC } from 'react'
 
 import { DayPicker } from 'react-day-picker'
-import { MdOutlineCalendarMonth } from 'react-icons/md'
+import { MdOutlineCalendarMonth, MdOutlineSave } from 'react-icons/md'
 
 interface Props {}
 
@@ -16,7 +16,11 @@ export const ThemePage: FC<Props> = () => {
       date: user?.unsafeMetadata.cupcake?.birthday ?? new Date(),
     },
     onSubmit: async ({ value }) => {
-      console.log(value)
+      const date = value.date
+
+      const prev = user?.unsafeMetadata
+
+      user?.update({ unsafeMetadata: { ...prev, cupcake: { birthday: date } } })
     },
   })
 
@@ -34,6 +38,7 @@ export const ThemePage: FC<Props> = () => {
       </div>
 
       <form
+        className="flex flex-col gap-1"
         onSubmit={(e) => {
           e.preventDefault()
           form.handleSubmit()
@@ -54,7 +59,7 @@ export const ThemePage: FC<Props> = () => {
                   className="input input-border w-full"
                   style={{ anchorName: '--rdp' } as React.CSSProperties}
                 >
-                  <MdOutlineCalendarMonth className="mr-1" />
+                  <MdOutlineCalendarMonth className="icon-button" />
                   {format(
                     field.state.value,
                     user.unsafeMetadata.general?.date_format || 'dd/MM/yyyy',
@@ -81,6 +86,14 @@ export const ThemePage: FC<Props> = () => {
             </>
           )}
         />
+
+        <button
+          type="submit"
+          className="btn btn-primary self-end"
+        >
+          <MdOutlineSave className="icon-button" />
+          Guardar
+        </button>
       </form>
     </div>
   )
