@@ -1,3 +1,4 @@
+import { useUpdateBirthday } from '@/hooks'
 import { useUser } from '@clerk/clerk-react'
 import { useForm } from '@tanstack/react-form'
 import { format } from 'date-fns'
@@ -11,16 +12,26 @@ interface Props {}
 export const ThemePage: FC<Props> = () => {
   const { user } = useUser()
 
+  const { mutate, isPending } = useUpdateBirthday()
+
   const form = useForm({
     defaultValues: {
       date: user?.unsafeMetadata.cupcake?.birthday ?? new Date(),
     },
     onSubmit: async ({ value }) => {
+      if (!user) return
+
       const date = value.date
 
-      const prev = user?.unsafeMetadata
+      const prev = user.unsafeMetadata
 
-      user?.update({ unsafeMetadata: { ...prev, cupcake: { birthday: date } } })
+      type UpdateUserParams = Parameters<typeof user.update>[0]
+
+      const body: UpdateUserParams = {
+        unsafeMetadata: { ...prev, cupcake: { birthday: date } },
+      }
+
+      mutate(body)
     },
   })
 
@@ -90,6 +101,7 @@ export const ThemePage: FC<Props> = () => {
         <button
           type="submit"
           className="btn btn-primary self-end"
+          disabled={isPending}
         >
           <MdOutlineSave className="icon-button" />
           Guardar
