@@ -1,7 +1,9 @@
+import { m } from '@/paraglide/messages'
 import { UserButton } from '@clerk/clerk-react'
 import { Link } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { GiCupcake } from 'react-icons/gi'
+import { Language } from '../Language'
 import { ThemePage } from './ThemePage'
 
 interface Props {}
@@ -19,19 +21,23 @@ export const TopBar: FC<Props> = () => {
           <span>Cupcake</span>
         </Link>
 
-        <UserButton>
-          <UserButton.UserProfilePage
-            label="Settings"
-            url="custom"
-            labelIcon={<GiCupcake />}
-          >
-            <ThemePage />
-          </UserButton.UserProfilePage>
+        <div className="flex items-center gap-3">
+          <Language />
 
-          <UserButton.UserProfilePage label="account" />
+          <UserButton>
+            <UserButton.UserProfilePage
+              label={m['common.settings']()}
+              labelIcon={<GiCupcake />}
+              url="custom"
+            >
+              <ThemePage />
+            </UserButton.UserProfilePage>
 
-          <UserButton.UserProfilePage label="security" />
-        </UserButton>
+            <UserButton.UserProfilePage label="account" />
+
+            <UserButton.UserProfilePage label="security" />
+          </UserButton>
+        </div>
       </div>
     </div>
   )

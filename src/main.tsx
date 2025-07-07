@@ -1,10 +1,11 @@
 import { ClerkProvider } from '@clerk/clerk-react'
-import { esMX } from '@clerk/localizations'
+import { enUS, esMX } from '@clerk/localizations'
 import { neobrutalism } from '@clerk/themes'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
 import './main.css'
+import { getLocale } from './paraglide/runtime'
 
 const CLERK_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -20,7 +21,7 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <ClerkProvider
-        localization={esMX}
+        localization={getLocale() === 'es' ? esMX : enUS}
         publishableKey={CLERK_KEY}
         afterSignOutUrl="/"
         appearance={{

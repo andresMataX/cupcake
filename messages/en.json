@@ -1,0 +1,27 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "auth": {
+    "welcome": "Welcome to Cupcake!",
+    "welcome_subtitle": "Log in to continue"
+  },
+  "common": {
+    "language": {
+      "switch": "Change language"
+    },
+    "settings": "Settings",
+    "save": "Save",
+    "loading": "Please, wait...",
+    "error": "An error occurred while processing your request"
+  },
+  "app": {
+    "profile": {
+      "title": "Cupcake Information",
+      "subtitle": "Here you can change the information related to the Cupcake application",
+      "form": {
+        "date": {
+          "label": "Date of birth"
+        }
+      }
+    }
+  }
+}

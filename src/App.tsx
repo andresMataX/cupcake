@@ -5,6 +5,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { toast } from 'sonner'
 import { DEFAULT_TOAST_ID } from './lib'
+import { m } from './paraglide/messages'
 import { routeTree } from './routeTree.gen'
 
 const queryClient = new QueryClient({
@@ -17,11 +18,11 @@ const queryClient = new QueryClient({
     },
     mutations: {
       onMutate: () => {
-        toast.loading('Loading...', { id: DEFAULT_TOAST_ID })
+        toast.loading(m['common.loading'](), { id: DEFAULT_TOAST_ID })
       },
 
       onError: () => {
-        toast.error('An error occurred while processing your request.', {
+        toast.error(m['common.error'](), {
           id: DEFAULT_TOAST_ID,
         })
       },

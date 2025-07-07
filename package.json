@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.29.0",
+    "@inlang/paraglide-js": "2.2.0",
     "@tanstack/eslint-plugin-query": "5.81.2",
     "@tanstack/router-plugin": "1.124.0",
     "@types/node": "24.0.10",
