@@ -1,18 +1,31 @@
+import { useUser } from '@clerk/clerk-react'
+import { format } from 'date-fns'
 import { useState, type FC } from 'react'
+
 import { DayPicker } from 'react-day-picker'
+import { MdOutlineCalendarMonth } from 'react-icons/md'
 
 interface Props {}
 
 export const ThemePage: FC<Props> = () => {
-  const [date, setDate] = useState<Date>()
+  const { user } = useUser()
+
+  const [date, setDate] = useState<Date>(
+    user?.unsafeMetadata.cupcake?.birthday ?? new Date(),
+  )
+
+  if (!user) return <></>
 
   return (
-    <div className="flex flex-col gap-2">
-      <h1 className="text-xl font-semibold">Información de Cupcake</h1>
+    <div className="flex flex-col gap-3">
+      <div>
+        <h1 className="text-xl font-bold">Información de Cupcake</h1>
 
-      <p className="text-sm">
-        Aquí puedes cambiar la información relacionada a la aplicación Cupcake.
-      </p>
+        <p className="text-sm text-gray-500">
+          Aquí puedes cambiar la información relacionada a la aplicación
+          Cupcake.
+        </p>
+      </div>
 
       <fieldset className="fieldset">
         <legend className="fieldset-legend pb-1">Fecha de nacimiento</legend>
@@ -22,7 +35,11 @@ export const ThemePage: FC<Props> = () => {
           className="input input-border w-full"
           style={{ anchorName: '--rdp' } as React.CSSProperties}
         >
-          {date ? date.toLocaleDateString() : 'Pick a date'}
+          <MdOutlineCalendarMonth className="mr-1" />
+          {format(
+            date,
+            user.unsafeMetadata.general?.date_format || 'dd/MM/yyyy',
+          )}
         </button>
       </fieldset>
 
@@ -34,10 +51,12 @@ export const ThemePage: FC<Props> = () => {
       >
         <DayPicker
           selected={date}
+          defaultMonth={date}
           onSelect={setDate}
           className="react-day-picker"
           captionLayout="dropdown"
           mode="single"
+          required
         />
       </div>
     </div>
