@@ -1,4 +1,5 @@
 import { ClerkProvider } from '@clerk/clerk-react'
+import { esMX } from '@clerk/localizations'
 import { neobrutalism } from '@clerk/themes'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
@@ -19,6 +20,7 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <ClerkProvider
+        localization={esMX}
         publishableKey={CLERK_KEY}
         afterSignOutUrl="/"
         appearance={{
