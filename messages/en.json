@@ -3,5 +3,17 @@
   "auth": {
     "welcome": "Welcome to Cupcake!",
     "welcome_subtitle": "Please sign in to continue"
+  },
+  "common": {
+    "language": {
+      "switch": "Switch language"
+    },
+    "settings": "Settings"
+  },
+  "app": {
+    "profile": {
+      "title": "Cupcake Information",
+      "subtitle": "Here you can change the information related to the Cupcake application"
+    }
   }
 }

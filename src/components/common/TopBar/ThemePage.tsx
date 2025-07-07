@@ -1,9 +1,9 @@
 import { useUpdateBirthday } from '@/hooks'
+import { m } from '@/paraglide/messages'
 import { useUser } from '@clerk/clerk-react'
 import { useForm } from '@tanstack/react-form'
 import { format } from 'date-fns'
 import { type FC } from 'react'
-
 import { DayPicker } from 'react-day-picker'
 import { MdOutlineCalendarMonth, MdOutlineSave } from 'react-icons/md'
 
@@ -40,12 +40,9 @@ export const ThemePage: FC<Props> = () => {
   return (
     <div className="flex flex-col gap-3">
       <div>
-        <h1 className="text-xl font-bold">Información de Cupcake</h1>
+        <h1 className="text-xl font-bold">{m['app.profile.title']()}</h1>
 
-        <p className="text-sm text-gray-500">
-          Aquí puedes cambiar la información relacionada a la aplicación
-          Cupcake.
-        </p>
+        <p className="text-sm text-gray-500">{m['app.profile.subtitle']()}</p>
       </div>
 
       <form
@@ -61,7 +58,7 @@ export const ThemePage: FC<Props> = () => {
             <>
               <fieldset className="fieldset">
                 <legend className="fieldset-legend pb-1">
-                  Fecha de nacimiento
+                  {m['app.profile.form.date.label']()}
                 </legend>
 
                 <button
@@ -104,7 +101,8 @@ export const ThemePage: FC<Props> = () => {
           disabled={isPending}
         >
           <MdOutlineSave className="icon-button" />
-          Guardar
+
+          {m['common.save']()}
         </button>
       </form>
     </div>

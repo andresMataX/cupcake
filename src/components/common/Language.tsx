@@ -1,3 +1,4 @@
+import { m } from '@/paraglide/messages'
 import { getLocale, setLocale } from '@/paraglide/runtime'
 import type { FC } from 'react'
 
@@ -22,7 +23,7 @@ export const Language: FC<Props> = () => {
   return (
     <div
       className="tooltip tooltip-bottom"
-      data-tip="Switch language"
+      data-tip={m['common.language.switch']()}
     >
       <button
         className="btn btn-dash btn-primary btn-circle btn-sm"

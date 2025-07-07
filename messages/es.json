@@ -3,5 +3,23 @@
   "auth": {
     "welcome": "¡Bienvenido a Cupcake!",
     "welcome_subtitle": "Inicia sesión para continuar"
+  },
+  "common": {
+    "language": {
+      "switch": "Cambiar idioma"
+    },
+    "settings": "Configuración",
+    "save": "Guardar"
+  },
+  "app": {
+    "profile": {
+      "title": "Información de Cupcake",
+      "subtitle": "Aquí puedes cambiar la información relacionada a la aplicación Cupcake",
+      "form": {
+        "date": {
+          "label": "Fecha de nacimiento"
+        }
+      }
+    }
   }
 }

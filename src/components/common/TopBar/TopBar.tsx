@@ -1,3 +1,4 @@
+import { m } from '@/paraglide/messages'
 import { UserButton } from '@clerk/clerk-react'
 import { Link } from '@tanstack/react-router'
 import type { FC } from 'react'
@@ -25,9 +26,9 @@ export const TopBar: FC<Props> = () => {
 
           <UserButton>
             <UserButton.UserProfilePage
-              label="Settings"
-              url="custom"
+              label={m['common.settings']()}
               labelIcon={<GiCupcake />}
+              url="custom"
             >
               <ThemePage />
             </UserButton.UserProfilePage>
