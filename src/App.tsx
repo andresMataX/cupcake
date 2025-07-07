@@ -1,12 +1,24 @@
 import { SplashScreen } from '@/components/common'
 import { ClerkLoaded, ClerkLoading, useUser } from '@clerk/clerk-react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { routeTree } from './routeTree.gen'
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: true,
+      staleTime: Infinity,
+      gcTime: Infinity,
+    },
+  },
+})
+
 const router = createRouter({
   routeTree,
-  context: { user: undefined! },
+  context: { user: undefined!, queryClient },
   defaultPreload: 'intent',
   defaultPreloadStaleTime: Infinity,
   notFoundMode: 'root',
@@ -24,10 +36,12 @@ export const App: FC<Props> = () => {
       </ClerkLoading>
 
       <ClerkLoaded>
-        <RouterProvider
-          router={router}
-          context={{ user }}
-        />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider
+            router={router}
+            context={{ user }}
+          />
+        </QueryClientProvider>
       </ClerkLoaded>
     </>
   )

@@ -16,6 +16,8 @@
     "@lottiefiles/dotlottie-react": "0.14.2",
     "@tailwindcss/vite": "4.1.11",
     "@tanstack/react-form": "1.14.0",
+    "@tanstack/react-query": "5.81.5",
+    "@tanstack/react-query-devtools": "5.81.5",
     "@tanstack/react-router": "1.124.0",
     "daisyui": "5.0.43",
     "date-fns": "4.1.0",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.29.0",
+    "@tanstack/eslint-plugin-query": "5.81.2",
     "@tanstack/router-plugin": "1.124.0",
     "@types/node": "24.0.10",
     "@types/react": "19.1.8",
