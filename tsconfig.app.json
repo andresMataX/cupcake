@@ -25,7 +25,10 @@
 
     /* Paths */
     "baseUrl": ".",
-    "paths": { "@/*": ["src/*"] }
+    "paths": { "@/*": ["src/*"] },
+
+    /* i18n */
+    "allowJs": true
   },
   "include": ["src"]
 }
