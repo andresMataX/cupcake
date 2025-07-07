@@ -1,4 +1,9 @@
 @import 'tailwindcss';
+
 @plugin "daisyui" {
   themes: cupcake --default;
+}
+
+@utility icon-button {
+  @apply mr-1 text-lg;
 }

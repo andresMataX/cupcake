@@ -2,6 +2,7 @@ import { UserButton } from '@clerk/clerk-react'
 import { Link } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { GiCupcake } from 'react-icons/gi'
+import { ThemePage } from './ThemePage'
 
 interface Props {}
 
@@ -13,12 +14,24 @@ export const TopBar: FC<Props> = () => {
           to="/"
           className="btn btn-primary"
         >
-          <span>Cupcake</span>
+          <GiCupcake className="icon-button" />
 
-          <GiCupcake className="size-5" />
+          <span>Cupcake</span>
         </Link>
 
-        <UserButton />
+        <UserButton>
+          <UserButton.UserProfilePage
+            label="Settings"
+            url="custom"
+            labelIcon={<GiCupcake />}
+          >
+            <ThemePage />
+          </UserButton.UserProfilePage>
+
+          <UserButton.UserProfilePage label="account" />
+
+          <UserButton.UserProfilePage label="security" />
+        </UserButton>
       </div>
     </div>
   )
