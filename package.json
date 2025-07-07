@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
-    "machine-translate": "inlang machine translate --project project.inlang"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@clerk/clerk-react": "5.32.4",
@@ -32,7 +31,6 @@
   },
   "devDependencies": {
     "@eslint/js": "9.29.0",
-    "@inlang/cli": "3.0.12",
     "@inlang/paraglide-js": "2.2.0",
     "@tanstack/eslint-plugin-query": "5.81.2",
     "@tanstack/router-plugin": "1.124.0",
