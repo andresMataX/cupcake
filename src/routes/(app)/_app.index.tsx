@@ -5,5 +5,9 @@ export const Route = createFileRoute('/(app)/_app/')({
 })
 
 function RouteComponent() {
-  return <main>Ola teto</main>
+  return (
+    <div>
+      <p>Hola teto</p>
+    </div>
+  )
 }

@@ -1,5 +1,5 @@
 import { SplashScreen } from '@/components/common'
-import { useUser } from '@clerk/clerk-react'
+import { ClerkLoaded, ClerkLoading, useUser } from '@clerk/clerk-react'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { routeTree } from './routeTree.gen'
@@ -17,14 +17,18 @@ interface Props {}
 export const App: FC<Props> = () => {
   const user = useUser()
 
-  if (!user.isLoaded) return <SplashScreen />
-
   return (
     <>
-      <RouterProvider
-        router={router}
-        context={{ user }}
-      />
+      <ClerkLoading>
+        <SplashScreen />
+      </ClerkLoading>
+
+      <ClerkLoaded>
+        <RouterProvider
+          router={router}
+          context={{ user }}
+        />
+      </ClerkLoaded>
     </>
   )
 }
@@ -32,5 +36,11 @@ export const App: FC<Props> = () => {
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router
+  }
+}
+
+declare global {
+  interface Window {
+    Clerk: unknown
   }
 }

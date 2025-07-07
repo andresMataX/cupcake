@@ -7,7 +7,7 @@ export const Route = createLazyFileRoute('/auth/')({
 
 function RouteComponent() {
   return (
-    <main className="bg-base-100 flex h-screen flex-col items-center justify-center gap-8 p-2">
+    <main className="bg-base-100 flex h-dvh flex-col items-center justify-center gap-8 p-2">
       <div className="flex flex-col items-center gap-1">
         <h1 className="text-3xl font-extrabold">Welcome to Cupcake!</h1>
 
