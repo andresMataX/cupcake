@@ -1,4 +1,7 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"example_message": "Hola mundo {username}"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "auth": {
+    "welcome": "¡Bienvenido a Cupcake!",
+    "welcome_subtitle": "Inicia sesión para continuar"
+  }
 }
