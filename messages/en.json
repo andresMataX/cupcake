@@ -11,7 +11,8 @@
     "settings": "Settings",
     "save": "Save",
     "loading": "Please, wait...",
-    "error": "An error occurred while processing your request"
+    "error": "An error occurred while processing your request",
+    "missing_info": "Missing information"
   },
   "app": {
     "profile": {
@@ -21,6 +22,11 @@
         "date": {
           "label": "Date of birth"
         }
+      }
+    },
+    "home": {
+      "missing_birthday": {
+        "description": "You haven't set your birthday. So your friends can choose your gift, please add your date of birth in the profile section."
       }
     }
   }

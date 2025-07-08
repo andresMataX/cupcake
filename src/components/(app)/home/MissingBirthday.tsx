@@ -1,3 +1,4 @@
+import { m } from '@/paraglide/messages'
 import { useUser } from '@clerk/clerk-react'
 import type { FC } from 'react'
 import { MdOutlineWarningAmber } from 'react-icons/md'
@@ -15,13 +16,11 @@ export const MissingBirthday: FC<Props> = () => {
 
       <div>
         {/* TODO: Add translation */}
-        <h3 className="font-bold">Información faltante</h3>
+        <h3 className="font-bold">{m['common.missing_info']()}</h3>
 
         {/* TODO: Add translation */}
         <div className="text-xs">
-          No has configurado tu cumpleaños. Para que tus amigos puedan escoger
-          tu regalo, por favor, añade tu fecha de nacimiento en la sección de
-          perfil.
+          {m['app.home.missing_birthday.description']()}
         </div>
       </div>
     </div>

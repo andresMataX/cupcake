@@ -11,7 +11,8 @@
     "settings": "Configuración",
     "save": "Guardar",
     "loading": "Por favor, espere...",
-    "error": "Ocurrió un error al procesar tu solicitud"
+    "error": "Ocurrió un error al procesar tu solicitud",
+    "missing_info": "Información faltante"
   },
   "app": {
     "profile": {
@@ -21,6 +22,11 @@
         "date": {
           "label": "Fecha de nacimiento"
         }
+      }
+    },
+    "home": {
+      "missing_birthday": {
+        "description": "No has configurado tu cumpleaños. Para que tus amigos puedan escoger tu regalo, por favor, añade tu fecha de nacimiento en la sección de perfil."
       }
     }
   }
