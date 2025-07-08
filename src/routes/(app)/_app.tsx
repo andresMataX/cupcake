@@ -17,7 +17,7 @@ function RouteComponent() {
     <main className="flex min-h-dvh flex-col">
       <TopBar />
 
-      <div className="container mx-auto flex-1 p-4 md:px-0">
+      <div className="container mx-auto flex flex-1 flex-col gap-6 p-4 md:px-0">
         <Outlet />
       </div>
     </main>

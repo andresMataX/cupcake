@@ -1,4 +1,4 @@
-import { MissingBirthday } from '@/components/(app)/home'
+import { MissingBirthday, UpcomingBirthday } from '@/components/(app)/home'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/(app)/_app/')({
@@ -7,8 +7,10 @@ export const Route = createFileRoute('/(app)/_app/')({
 
 function RouteComponent() {
   return (
-    <div>
+    <>
       <MissingBirthday />
-    </div>
+
+      <UpcomingBirthday />
+    </>
   )
 }
