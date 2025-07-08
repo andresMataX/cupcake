@@ -1,4 +1,3 @@
-import { UserButton } from '@clerk/clerk-react'
 import type { FC } from 'react'
 import { MdOpenInNew, MdOutlineCalendarMonth } from 'react-icons/md'
 
@@ -24,7 +23,11 @@ export const UpcomingBirthday: FC<Props> = () => {
         <div className="card card-sm bg-primary text-primary-content">
           <div className="card-body flex-row items-center justify-between">
             <div className="flex flex-row items-center gap-3">
-              <UserButton />
+              <div className="avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18yelBrbWIwWUZlMUhwY0g0dWh2SkFSRVFFODgiLCJyaWQiOiJ1c2VyXzJ6UG40NGhKNHd3WUxSa0c2VWsyS2U4VEg4eSJ9" />
+                </div>
+              </div>
 
               <div>
                 <p className="text-lg font-extrabold">gatuto</p>

@@ -9,7 +9,7 @@ export const Route = createLazyFileRoute('/auth/')({
 
 function RouteComponent() {
   return (
-    <main className="relative flex h-dvh flex-col items-center justify-center gap-8 p-2 text-pink-700">
+    <main className="bg-base-100 relative flex h-dvh flex-col items-center justify-center gap-8 p-2">
       <div className="absolute top-4 left-[50%]">
         <Language />
       </div>
