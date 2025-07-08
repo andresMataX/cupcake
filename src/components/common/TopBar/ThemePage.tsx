@@ -67,7 +67,7 @@ export const ThemePage: FC<Props> = () => {
                   className="input input-border w-full"
                   style={{ anchorName: '--rdp' } as React.CSSProperties}
                 >
-                  <MdOutlineCalendarMonth className="icon-button" />
+                  <MdOutlineCalendarMonth className="button-icon" />
                   {format(
                     field.state.value,
                     user.unsafeMetadata.general?.date_format || 'dd/MM/yyyy',
@@ -100,7 +100,7 @@ export const ThemePage: FC<Props> = () => {
           className="btn btn-primary self-end"
           disabled={isPending}
         >
-          <MdOutlineSave className="icon-button" />
+          <MdOutlineSave className="button-icon" />
 
           {m['common.save']()}
         </button>

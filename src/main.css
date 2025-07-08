@@ -4,6 +4,6 @@
   themes: cupcake --default;
 }
 
-@utility icon-button {
+@utility button-icon {
   @apply mr-1 text-lg;
 }
