@@ -10,7 +10,7 @@ interface Props {}
 
 export const TopBar: FC<Props> = () => {
   return (
-    <div className="navbar shadow-sm">
+    <div className="navbar bg-teal-50 shadow-sm">
       <div className="container mx-auto flex items-center justify-between">
         <Link
           to="/"
