@@ -9,7 +9,7 @@ export const UpcomingBirthday: FC<Props> = () => {
     <div className="card card-side bg-base-100 card-border">
       <figure className="bg-secondary text-secondary-content w-28">
         <div className="flex flex-col items-center justify-center">
-          <p className="text-3xl font-extrabold">350</p>
+          <p className="text-3xl font-extrabold">218</p>
 
           <p className="text-lg">días</p>
         </div>
