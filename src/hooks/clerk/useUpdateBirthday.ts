@@ -10,6 +10,7 @@ export const useUpdateBirthday = () => {
     mutationFn: user!.update,
 
     onSuccess: () => {
+      // TODO: Add translation
       toast.success('Birthday updated successfully!', { id: DEFAULT_TOAST_ID })
     },
   })
