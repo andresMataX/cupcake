@@ -3,7 +3,7 @@ import { MdOpenInNew, MdOutlineCalendarMonth } from 'react-icons/md'
 
 interface Props {}
 
-export const UpcomingBirthday: FC<Props> = () => {
+export const UpcomingBirthdays: FC<Props> = () => {
   return (
     <div className="card card-side bg-base-100 card-border">
       <figure className="bg-secondary text-secondary-content w-28">
@@ -17,7 +17,7 @@ export const UpcomingBirthday: FC<Props> = () => {
       <div className="card-body gap-4">
         <h1 className="card-title">
           <MdOutlineCalendarMonth className="size-6" />
-          Próximo Cumpleaños
+          Próximos Cumpleaños
         </h1>
 
         <div className="card card-sm bg-primary text-primary-content">
@@ -31,7 +31,8 @@ export const UpcomingBirthday: FC<Props> = () => {
 
               <div>
                 <p className="text-lg font-extrabold">gatuto</p>
-                <p>11 de febrero, 24 años</p>
+
+                <p>Lunes 11 de febrero, 24 años</p>
               </div>
             </div>
 

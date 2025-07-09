@@ -1,2 +1,2 @@
 export * from './MissingBirthday'
-export * from './UpcomingBirthday'
+export * from './UpcomingBirthdays'
