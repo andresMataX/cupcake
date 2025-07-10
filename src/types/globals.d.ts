@@ -7,6 +7,5 @@ declare global {
 
   interface UserUnsafeMetadata {
     cupcake?: { birthday?: Date | undefined }
-    general?: { time_zone?: string; date_format?: string }
   }
 }

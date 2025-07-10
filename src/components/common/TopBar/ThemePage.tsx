@@ -6,6 +6,9 @@ import { format } from 'date-fns'
 import { type FC } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { MdOutlineCalendarMonth, MdOutlineSave } from 'react-icons/md'
+import * as v from 'valibot'
+
+const schema = v.object({ date: v.date() })
 
 interface Props {}
 
@@ -18,6 +21,7 @@ export const ThemePage: FC<Props> = () => {
     defaultValues: {
       date: user?.unsafeMetadata.cupcake?.birthday ?? new Date(),
     },
+    validators: { onChange: schema },
     onSubmit: async ({ value }) => {
       if (!user) return
 
@@ -64,14 +68,12 @@ export const ThemePage: FC<Props> = () => {
                 <button
                   type="button"
                   popoverTarget="rdp-popover"
-                  className="input input-border w-full"
+                  className={`input input-border w-full ${!field.state.meta.isValid && 'input-error'}`}
                   style={{ anchorName: '--rdp' } as React.CSSProperties}
                 >
                   <MdOutlineCalendarMonth className="button-icon" />
-                  {format(
-                    field.state.value,
-                    user.unsafeMetadata.general?.date_format || 'dd/MM/yyyy',
-                  )}
+
+                  {format(field.state.value, 'dd/MM/yyyy')}
                 </button>
               </fieldset>
 
@@ -87,6 +89,7 @@ export const ThemePage: FC<Props> = () => {
                   onSelect={field.handleChange}
                   className="react-day-picker"
                   captionLayout="dropdown"
+                  disabled={{ after: new Date() }}
                   mode="single"
                   required
                 />
