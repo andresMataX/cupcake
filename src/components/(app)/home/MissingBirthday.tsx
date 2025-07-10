@@ -8,8 +8,7 @@ interface Props {}
 export const MissingBirthday: FC<Props> = () => {
   const { user } = useUser()
 
-  if (!user) return <></>
-  if (user.unsafeMetadata.cupcake?.birthday) return <></>
+  if (user!.unsafeMetadata.cupcake?.birthday) return <></>
 
   return (
     <div className="alert alert-warning alert-vertical sm:alert-horizontal alert-soft">

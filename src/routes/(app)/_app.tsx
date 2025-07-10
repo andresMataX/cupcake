@@ -1,4 +1,5 @@
 import { TopBar } from '@/components/common'
+import { SignedIn } from '@clerk/clerk-react'
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/(app)/_app')({
@@ -14,12 +15,14 @@ export const Route = createFileRoute('/(app)/_app')({
 
 function RouteComponent() {
   return (
-    <main className="flex min-h-dvh flex-col">
-      <TopBar />
+    <SignedIn>
+      <main className="flex min-h-dvh flex-col">
+        <TopBar />
 
-      <div className="container mx-auto flex flex-1 flex-col gap-6 p-4 md:px-0">
-        <Outlet />
-      </div>
-    </main>
+        <div className="container mx-auto flex flex-1 flex-col gap-6 p-4 md:px-0">
+          <Outlet />
+        </div>
+      </main>
+    </SignedIn>
   )
 }
