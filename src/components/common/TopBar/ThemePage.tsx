@@ -2,13 +2,15 @@ import { useUpdateBirthday } from '@/hooks'
 import { m } from '@/paraglide/messages'
 import { useUser } from '@clerk/clerk-react'
 import { useForm } from '@tanstack/react-form'
-import { format } from 'date-fns'
+import { format, subYears } from 'date-fns'
 import { type FC } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { MdOutlineCalendarMonth, MdOutlineSave } from 'react-icons/md'
 import * as v from 'valibot'
 
-const schema = v.object({ date: v.date() })
+const schema = v.object({
+  date: v.pipe(v.date()),
+})
 
 interface Props {}
 
@@ -19,7 +21,7 @@ export const ThemePage: FC<Props> = () => {
 
   const form = useForm({
     defaultValues: {
-      date: user?.unsafeMetadata.cupcake?.birthday ?? new Date(),
+      date: user?.unsafeMetadata.cupcake?.birthday ?? subYears(new Date(), 1),
     },
     validators: { onChange: schema },
     onSubmit: async ({ value }) => {
@@ -89,7 +91,7 @@ export const ThemePage: FC<Props> = () => {
                   onSelect={field.handleChange}
                   className="react-day-picker"
                   captionLayout="dropdown"
-                  disabled={{ after: new Date() }}
+                  disabled={{ after: subYears(new Date(), 1) }}
                   mode="single"
                   required
                 />
