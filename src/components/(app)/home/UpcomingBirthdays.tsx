@@ -13,6 +13,7 @@ export const UpcomingBirthdays: FC<Props> = () => {
         <div className="flex flex-col items-center justify-center">
           <p className="text-3xl font-extrabold">218</p>
 
+          {/* TODO: Add translation */}
           <p className="text-lg">días</p>
         </div>
       </figure>
@@ -20,6 +21,7 @@ export const UpcomingBirthdays: FC<Props> = () => {
       <div className="card-body gap-4">
         <h1 className="card-title">
           <MdOutlineCalendarMonth className="size-6" />
+          {/* TODO: Add translation */}
           Próximos Cumpleaños
         </h1>
 
@@ -39,12 +41,14 @@ export const UpcomingBirthdays: FC<Props> = () => {
                 <div>
                   <p className="text-lg font-extrabold">{user.username}</p>
 
+                  {/* TODO: Add translation */}
                   <p>Lunes 11 de febrero, 24 años</p>
                 </div>
               </div>
 
               <button className="btn btn-secondary">
                 <MdOpenInNew className="button-icon" />
+                {/* TODO: Add translation */}
                 Votar
               </button>
             </div>
