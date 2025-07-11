@@ -1,6 +1,10 @@
 import { useBirthdays } from '@/hooks/birthdays'
 import { getLocale } from '@/paraglide/runtime'
-import { format, formatDistanceStrict } from 'date-fns'
+import {
+  format,
+  formatDistanceStrict,
+  formatDistanceToNowStrict,
+} from 'date-fns'
 import { enUS, es } from 'date-fns/locale'
 import type { FC } from 'react'
 import { MdOpenInNew, MdOutlineCalendarMonth } from 'react-icons/md'
@@ -14,10 +18,11 @@ export const UpcomingBirthdays: FC<Props> = () => {
     <div className="card card-side bg-base-100 card-border">
       <figure className="bg-secondary text-secondary-content w-28">
         <div className="flex flex-col items-center justify-center">
-          <p className="text-3xl font-extrabold">218</p>
-
-          {/* TODO: Add translation */}
-          <p className="text-lg">días</p>
+          <p className="text-center text-2xl font-extrabold">
+            {formatDistanceToNowStrict(upcoming.date, {
+              locale: getLocale() === 'es' ? es : enUS,
+            })}
+          </p>
         </div>
       </figure>
 
