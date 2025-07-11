@@ -1,6 +1,7 @@
 import { LoadingPage, SplashScreen } from '@/components/common'
 import { ClerkLoaded, ClerkLoading, useAuth, useUser } from '@clerk/clerk-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import type { FC } from 'react'
 import { toast } from 'sonner'
@@ -58,6 +59,8 @@ export const App: FC<Props> = () => {
             router={router}
             context={{ user, auth }}
           />
+
+          <ReactQueryDevtools />
         </QueryClientProvider>
       </ClerkLoaded>
     </>

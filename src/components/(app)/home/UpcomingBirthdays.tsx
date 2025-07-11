@@ -1,4 +1,7 @@
 import { useBirthdays } from '@/hooks/birthdays'
+import { getLocale } from '@/paraglide/runtime'
+import { format, formatDistanceStrict } from 'date-fns'
+import { enUS, es } from 'date-fns/locale'
 import type { FC } from 'react'
 import { MdOpenInNew, MdOutlineCalendarMonth } from 'react-icons/md'
 
@@ -41,8 +44,13 @@ export const UpcomingBirthdays: FC<Props> = () => {
                 <div>
                   <p className="text-lg font-extrabold">{user.username}</p>
 
-                  {/* TODO: Add translation */}
-                  <p>Lunes 11 de febrero, 24 años</p>
+                  <p>
+                    {`${format(upcoming.date, 'PPPP', {
+                      locale: getLocale() === 'es' ? es : enUS,
+                    })}, ${formatDistanceStrict(user.birthday, new Date(), {
+                      locale: getLocale() === 'es' ? es : enUS,
+                    })}`}
+                  </p>
                 </div>
               </div>
 
