@@ -13,6 +13,12 @@ if (!CLERK_KEY) {
   throw new Error('Add your Clerk Publishable Key to the .env file')
 }
 
+const API_URL = import.meta.env.VITE_API_URL
+
+if (!API_URL) {
+  throw new Error('Add your API URL to the .env file')
+}
+
 const rootElement = document.getElementById('root')!
 
 if (!rootElement.innerHTML) {

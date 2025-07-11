@@ -1,3 +1,5 @@
+import type { useAuth } from '@clerk/clerk-react'
+
 export {}
 
 declare global {
@@ -8,4 +10,6 @@ declare global {
   interface UserUnsafeMetadata {
     cupcake?: { birthday?: Date | undefined }
   }
+
+  type GetToken = ReturnType<typeof useAuth>['getToken']
 }
