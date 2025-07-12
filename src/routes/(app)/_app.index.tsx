@@ -1,4 +1,8 @@
-import { MissingBirthday, UpcomingBirthdays } from '@/components/(app)/home'
+import {
+  Birthdays,
+  MissingBirthday,
+  UpcomingBirthdays,
+} from '@/components/(app)/home'
 import { birthdaysQueryOptions } from '@/hooks/birthdays'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -17,6 +21,8 @@ function RouteComponent() {
       <MissingBirthday />
 
       <UpcomingBirthdays />
+
+      <Birthdays />
     </>
   )
 }
