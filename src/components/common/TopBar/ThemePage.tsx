@@ -23,7 +23,7 @@ export const ThemePage: FC<Props> = () => {
     defaultValues: {
       date: user?.unsafeMetadata.cupcake?.birthday ?? subYears(new Date(), 1),
     },
-    validators: { onChange: schema },
+    validators: { onSubmit: schema },
     onSubmit: async ({ value }) => {
       if (!user) return
 

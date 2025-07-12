@@ -1,4 +1,5 @@
 import { useBirthdays } from '@/hooks/birthdays'
+import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import {
   format,
@@ -29,8 +30,8 @@ export const UpcomingBirthdays: FC<Props> = () => {
       <div className="card-body gap-4">
         <h1 className="card-title">
           <MdOutlineCalendarMonth className="size-6" />
-          {/* TODO: Add translation */}
-          Próximos Cumpleaños
+
+          {m['app.home.upcoming_birthdays.title']()}
         </h1>
 
         {upcoming.birthdays.map((user) => (
@@ -61,8 +62,8 @@ export const UpcomingBirthdays: FC<Props> = () => {
 
               <button className="btn btn-secondary">
                 <MdOpenInNew className="button-icon" />
-                {/* TODO: Add translation */}
-                Votar
+
+                {m['common.vote']()}
               </button>
             </div>
           </div>

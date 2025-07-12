@@ -1,4 +1,5 @@
 import { DEFAULT_TOAST_ID } from '@/lib'
+import { m } from '@/paraglide/messages'
 import { useUser } from '@clerk/clerk-react'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner'
@@ -10,8 +11,9 @@ export const useUpdateBirthday = () => {
     mutationFn: user!.update,
 
     onSuccess: () => {
-      // TODO: Add translation
-      toast.success('Birthday updated successfully!', { id: DEFAULT_TOAST_ID })
+      toast.success(m['app.profile.feedback_success'](), {
+        id: DEFAULT_TOAST_ID,
+      })
     },
   })
 

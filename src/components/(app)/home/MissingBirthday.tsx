@@ -15,10 +15,8 @@ export const MissingBirthday: FC<Props> = () => {
       <MdOutlineWarningAmber className="size-6" />
 
       <div>
-        {/* TODO: Add translation */}
         <h3 className="font-bold">{m['common.missing_info']()}</h3>
 
-        {/* TODO: Add translation */}
         <div className="text-xs">
           {m['app.home.missing_birthday.description']()}
         </div>
