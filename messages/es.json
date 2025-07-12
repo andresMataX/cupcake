@@ -12,7 +12,8 @@
     "save": "Guardar",
     "loading": "Por favor, espere...",
     "error": "Ocurrió un error al procesar tu solicitud",
-    "missing_info": "Información faltante"
+    "missing_info": "Información faltante",
+    "vote": "Votar"
   },
   "app": {
     "profile": {
@@ -22,11 +23,18 @@
         "date": {
           "label": "Fecha de nacimiento"
         }
-      }
+      },
+      "feedback_success": "¡Cumpleaños actualizado con éxito!"
     },
     "home": {
       "missing_birthday": {
         "description": "No has configurado tu cumpleaños. Para que tus amigos puedan escoger tu regalo, por favor, añade tu fecha de nacimiento en la sección de perfil."
+      },
+      "birthdays": {
+        "title": "Todos los cumpleaños"
+      },
+      "upcoming_birthdays": {
+        "title": "Próximos Cumpleaños"
       }
     }
   }

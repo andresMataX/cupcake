@@ -1,4 +1,5 @@
 import { useBirthdays } from '@/hooks'
+import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import { format, formatDistanceStrict } from 'date-fns'
 import { enUS, es } from 'date-fns/locale'
@@ -15,8 +16,8 @@ export const Birthdays: FC<Props> = () => {
       <div className="card-body gap-3">
         <h1 className="card-title">
           <MdOutlineCalendarMonth className="size-6" />
-          {/* TODO: Add translation */}
-          Todos los Cumpleaños
+
+          {m['app.home.birthdays.title']()}
         </h1>
 
         <div className="divider divider-secondary my-0" />
