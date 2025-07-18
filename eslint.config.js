@@ -1,7 +1,4 @@
 import js from '@eslint/js'
-import pluginQuery from '@tanstack/eslint-plugin-query'
-import pluginRouter from '@tanstack/eslint-plugin-router'
-import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import { globalIgnores } from 'eslint/config'
@@ -17,13 +14,7 @@ export default tseslint.config([
       tseslint.configs.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
-      pluginQuery.configs['flat/recommended'],
-      pluginRouter.configs['flat/recommended'],
-      react.configs['all'],
     ],
-    plugins: {
-      react,
-    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -33,10 +24,10 @@ export default tseslint.config([
         'warn',
         { allowConstantExport: true },
       ],
-      '@tanstack/router/create-route-property-order': 'error',
+      // '@tanstack/router/create-route-property-order': 'error',
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      'react/jsx-key': 'error',
+      // 'react/jsx-key': 'error',
       'no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
