@@ -1,0 +1,1 @@
+import{j as e,c as t}from"./index-C1sei0At.js";const n=()=>e.jsx(e.Fragment,{children:e.jsx("h1",{children:"Header"})}),a=t("/(app)/_app/voting-room/$id/")({component:o});function o(){return e.jsx(e.Fragment,{children:e.jsx(n,{})})}export{a as Route};
