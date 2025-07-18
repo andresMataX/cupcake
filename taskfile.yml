@@ -4,7 +4,7 @@ vars:
   SHORT_SHA:
     sh: git rev-parse --short HEAD
 
-dotenv: ['.env']
+dotenv: ['.env.prod']
 
 tasks:
   install:

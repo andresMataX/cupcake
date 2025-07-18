@@ -1,3 +1,4 @@
+import { Header } from '@/components/(app)/voting-room'
 import { createLazyFileRoute } from '@tanstack/react-router'
 
 export const Route = createLazyFileRoute('/(app)/_app/voting-room/$id/')({
@@ -5,5 +6,9 @@ export const Route = createLazyFileRoute('/(app)/_app/voting-room/$id/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/(app)/_app/voting-room/"!</div>
+  return (
+    <>
+      <Header />
+    </>
+  )
 }
