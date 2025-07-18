@@ -11,7 +11,9 @@
     "settings": "Settings",
     "save": "Save",
     "loading": "Please, wait...",
-    "error": "An error occurred while processing your request"
+    "error": "An error occurred while processing your request",
+    "missing_info": "Missing information",
+    "vote": "Vote"
   },
   "app": {
     "profile": {
@@ -21,6 +23,18 @@
         "date": {
           "label": "Date of birth"
         }
+      },
+      "feedback_success": "Birthday updated successfully!"
+    },
+    "home": {
+      "missing_birthday": {
+        "description": "You haven't set your birthday. So your friends can choose your gift, please add your date of birth in the profile section."
+      },
+      "birthdays": {
+        "title": "All Birthdays"
+      },
+      "upcoming_birthdays": {
+        "title": "Upcoming Birthdays"
       }
     }
   }
