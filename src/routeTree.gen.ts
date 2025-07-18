@@ -14,6 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as appAppRouteImport } from './routes/(app)/_app'
 import { Route as appAppIndexRouteImport } from './routes/(app)/_app.index'
+import { Route as appAppVotingRoomIndexRouteImport } from './routes/(app)/_app.voting-room/index'
 
 const appRouteImport = createFileRoute('/(app)')()
 
@@ -35,14 +36,25 @@ const appAppIndexRoute = appAppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => appAppRoute,
 } as any)
+const appAppVotingRoomIndexRoute = appAppVotingRoomIndexRouteImport
+  .update({
+    id: '/voting-room/',
+    path: '/voting-room/',
+    getParentRoute: () => appAppRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_app.voting-room/index.lazy').then((d) => d.Route),
+  )
 
 export interface FileRoutesByFullPath {
   '/': typeof appAppIndexRoute
   '/auth': typeof AuthIndexRoute
+  '/voting-room': typeof appAppVotingRoomIndexRoute
 }
 export interface FileRoutesByTo {
   '/auth': typeof AuthIndexRoute
   '/': typeof appAppIndexRoute
+  '/voting-room': typeof appAppVotingRoomIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -50,13 +62,20 @@ export interface FileRoutesById {
   '/(app)/_app': typeof appAppRouteWithChildren
   '/auth/': typeof AuthIndexRoute
   '/(app)/_app/': typeof appAppIndexRoute
+  '/(app)/_app/voting-room/': typeof appAppVotingRoomIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth'
+  fullPaths: '/' | '/auth' | '/voting-room'
   fileRoutesByTo: FileRoutesByTo
-  to: '/auth' | '/'
-  id: '__root__' | '/(app)' | '/(app)/_app' | '/auth/' | '/(app)/_app/'
+  to: '/auth' | '/' | '/voting-room'
+  id:
+    | '__root__'
+    | '/(app)'
+    | '/(app)/_app'
+    | '/auth/'
+    | '/(app)/_app/'
+    | '/(app)/_app/voting-room/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -94,15 +113,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appAppIndexRouteImport
       parentRoute: typeof appAppRoute
     }
+    '/(app)/_app/voting-room/': {
+      id: '/(app)/_app/voting-room/'
+      path: '/voting-room'
+      fullPath: '/voting-room'
+      preLoaderRoute: typeof appAppVotingRoomIndexRouteImport
+      parentRoute: typeof appAppRoute
+    }
   }
 }
 
 interface appAppRouteChildren {
   appAppIndexRoute: typeof appAppIndexRoute
+  appAppVotingRoomIndexRoute: typeof appAppVotingRoomIndexRoute
 }
 
 const appAppRouteChildren: appAppRouteChildren = {
   appAppIndexRoute: appAppIndexRoute,
+  appAppVotingRoomIndexRoute: appAppVotingRoomIndexRoute,
 }
 
 const appAppRouteWithChildren =
