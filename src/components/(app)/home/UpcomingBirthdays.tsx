@@ -1,6 +1,7 @@
 import { useBirthdays } from '@/hooks/birthdays'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
+import { Link } from '@tanstack/react-router'
 import {
   format,
   formatDistanceStrict,
@@ -60,11 +61,15 @@ export const UpcomingBirthdays: FC<Props> = () => {
                 </div>
               </div>
 
-              <button className="btn btn-secondary">
+              <Link
+                to="/voting-room/$id"
+                params={{ id: user.id }}
+                className="btn btn-secondary"
+              >
                 <MdOpenInNew className="button-icon" />
 
                 {m['common.vote']()}
-              </button>
+              </Link>
             </div>
           </div>
         ))}

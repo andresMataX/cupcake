@@ -14,7 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as appAppRouteImport } from './routes/(app)/_app'
 import { Route as appAppIndexRouteImport } from './routes/(app)/_app.index'
-import { Route as appAppVotingRoomIndexRouteImport } from './routes/(app)/_app.voting-room/index'
+import { Route as appAppVotingRoomIdIndexRouteImport } from './routes/(app)/_app.voting-room.$id/index'
 
 const appRouteImport = createFileRoute('/(app)')()
 
@@ -36,25 +36,27 @@ const appAppIndexRoute = appAppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => appAppRoute,
 } as any)
-const appAppVotingRoomIndexRoute = appAppVotingRoomIndexRouteImport
+const appAppVotingRoomIdIndexRoute = appAppVotingRoomIdIndexRouteImport
   .update({
-    id: '/voting-room/',
-    path: '/voting-room/',
+    id: '/voting-room/$id/',
+    path: '/voting-room/$id/',
     getParentRoute: () => appAppRoute,
   } as any)
   .lazy(() =>
-    import('./routes/(app)/_app.voting-room/index.lazy').then((d) => d.Route),
+    import('./routes/(app)/_app.voting-room.$id/index.lazy').then(
+      (d) => d.Route,
+    ),
   )
 
 export interface FileRoutesByFullPath {
   '/': typeof appAppIndexRoute
   '/auth': typeof AuthIndexRoute
-  '/voting-room': typeof appAppVotingRoomIndexRoute
+  '/voting-room/$id': typeof appAppVotingRoomIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/auth': typeof AuthIndexRoute
   '/': typeof appAppIndexRoute
-  '/voting-room': typeof appAppVotingRoomIndexRoute
+  '/voting-room/$id': typeof appAppVotingRoomIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,20 +64,20 @@ export interface FileRoutesById {
   '/(app)/_app': typeof appAppRouteWithChildren
   '/auth/': typeof AuthIndexRoute
   '/(app)/_app/': typeof appAppIndexRoute
-  '/(app)/_app/voting-room/': typeof appAppVotingRoomIndexRoute
+  '/(app)/_app/voting-room/$id/': typeof appAppVotingRoomIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/voting-room'
+  fullPaths: '/' | '/auth' | '/voting-room/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/auth' | '/' | '/voting-room'
+  to: '/auth' | '/' | '/voting-room/$id'
   id:
     | '__root__'
     | '/(app)'
     | '/(app)/_app'
     | '/auth/'
     | '/(app)/_app/'
-    | '/(app)/_app/voting-room/'
+    | '/(app)/_app/voting-room/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -113,11 +115,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appAppIndexRouteImport
       parentRoute: typeof appAppRoute
     }
-    '/(app)/_app/voting-room/': {
-      id: '/(app)/_app/voting-room/'
-      path: '/voting-room'
-      fullPath: '/voting-room'
-      preLoaderRoute: typeof appAppVotingRoomIndexRouteImport
+    '/(app)/_app/voting-room/$id/': {
+      id: '/(app)/_app/voting-room/$id/'
+      path: '/voting-room/$id'
+      fullPath: '/voting-room/$id'
+      preLoaderRoute: typeof appAppVotingRoomIdIndexRouteImport
       parentRoute: typeof appAppRoute
     }
   }
@@ -125,12 +127,12 @@ declare module '@tanstack/react-router' {
 
 interface appAppRouteChildren {
   appAppIndexRoute: typeof appAppIndexRoute
-  appAppVotingRoomIndexRoute: typeof appAppVotingRoomIndexRoute
+  appAppVotingRoomIdIndexRoute: typeof appAppVotingRoomIdIndexRoute
 }
 
 const appAppRouteChildren: appAppRouteChildren = {
   appAppIndexRoute: appAppIndexRoute,
-  appAppVotingRoomIndexRoute: appAppVotingRoomIndexRoute,
+  appAppVotingRoomIdIndexRoute: appAppVotingRoomIdIndexRoute,
 }
 
 const appAppRouteWithChildren =
