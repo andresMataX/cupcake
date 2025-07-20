@@ -1,8 +1,6 @@
+import { BirthdayInfo } from '@/components/common'
 import { useBirthdays } from '@/hooks'
 import { m } from '@/paraglide/messages'
-import { getLocale } from '@/paraglide/runtime'
-import { format, formatDistanceStrict } from 'date-fns'
-import { enUS, es } from 'date-fns/locale'
 import type { FC } from 'react'
 import { MdOutlineCalendarMonth } from 'react-icons/md'
 
@@ -28,32 +26,11 @@ export const Birthdays: FC<Props> = () => {
             className="flex flex-col gap-3"
           >
             {birthdays.map((user) => (
-              <div
+              <BirthdayInfo
                 key={user.id}
-                className="card card-sm bg-primary text-primary-content"
-              >
-                <div className="card-body flex-row items-center justify-between">
-                  <div className="flex flex-row items-center gap-3">
-                    <div className="avatar">
-                      <div className="w-10 rounded-full">
-                        <img src={user.imageUrl} />
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-lg font-extrabold">{user.username}</p>
-
-                      <p>
-                        {`${format(date, 'PPPP', {
-                          locale: getLocale() === 'es' ? es : enUS,
-                        })}, ${formatDistanceStrict(user.birthday, new Date(), {
-                          locale: getLocale() === 'es' ? es : enUS,
-                        })}`}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                birthday={user}
+                date={date}
+              />
             ))}
 
             {i < upcoming.length - 2 && (

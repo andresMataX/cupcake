@@ -1,3 +1,4 @@
+export * from './BirthdayInfo'
 export * from './Language'
 export * from './LoadingPage'
 export * from './SplashScreen'
