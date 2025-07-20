@@ -1,12 +1,9 @@
+import { BirthdayInfo } from '@/components/common'
 import { useBirthdays } from '@/hooks/birthdays'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import { Link } from '@tanstack/react-router'
-import {
-  format,
-  formatDistanceStrict,
-  formatDistanceToNowStrict,
-} from 'date-fns'
+import { formatDistanceToNowStrict } from 'date-fns'
 import { enUS, es } from 'date-fns/locale'
 import type { FC } from 'react'
 import { MdOpenInNew, MdOutlineCalendarMonth } from 'react-icons/md'
@@ -35,43 +32,23 @@ export const UpcomingBirthdays: FC<Props> = () => {
           {m['app.home.upcoming_birthdays.title']()}
         </h1>
 
-        {upcoming.birthdays.map((user) => (
-          <div
-            key={user.id}
-            className="card card-sm bg-primary text-primary-content"
-          >
-            <div className="card-body flex-row items-center justify-between">
-              <div className="flex flex-row items-center gap-3">
-                <div className="avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={user.imageUrl} />
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-lg font-extrabold">{user.username}</p>
-
-                  <p>
-                    {`${format(upcoming.date, 'PPPP', {
-                      locale: getLocale() === 'es' ? es : enUS,
-                    })}, ${formatDistanceStrict(user.birthday, new Date(), {
-                      locale: getLocale() === 'es' ? es : enUS,
-                    })}`}
-                  </p>
-                </div>
-              </div>
-
+        {upcoming.birthdays.map((birthday) => (
+          <BirthdayInfo
+            key={birthday.id}
+            birthday={birthday}
+            date={upcoming.date}
+            action={
               <Link
                 to="/voting-room/$id"
-                params={{ id: user.id }}
+                params={{ id: birthday.id }}
                 className="btn btn-secondary"
               >
                 <MdOpenInNew className="button-icon" />
 
                 {m['common.vote']()}
               </Link>
-            </div>
-          </div>
+            }
+          />
         ))}
       </div>
     </div>

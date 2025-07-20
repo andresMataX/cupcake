@@ -7,9 +7,10 @@ import type { FC } from 'react'
 interface Props {
   date: Date
   birthday: Birthday
+  action?: React.ReactNode
 }
 
-export const BirthdayInfo: FC<Props> = ({ birthday, date }) => {
+export const BirthdayInfo: FC<Props> = ({ birthday, date, action }) => {
   return (
     <div className="card card-sm bg-primary text-primary-content">
       <div className="card-body flex-row items-center justify-between">
@@ -26,12 +27,14 @@ export const BirthdayInfo: FC<Props> = ({ birthday, date }) => {
             <p>
               {`${format(date, 'PPPP', {
                 locale: getLocale() === 'es' ? es : enUS,
-              })}, ${formatDistanceStrict(birthday.birthday, new Date(), {
+              })}, ${formatDistanceStrict(birthday.birthday, new Date(date), {
                 locale: getLocale() === 'es' ? es : enUS,
               })}`}
             </p>
           </div>
         </div>
+
+        {action}
       </div>
     </div>
   )
