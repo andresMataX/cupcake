@@ -16,7 +16,7 @@ export const Route = createFileRoute('/(app)/_app')({
 function RouteComponent() {
   return (
     <SignedIn>
-      <main className="flex min-h-dvh flex-col">
+      <main className="magicpattern flex min-h-dvh flex-col">
         <TopBar />
 
         <div className="container mx-auto flex flex-1 flex-col gap-6 p-4 md:px-0">

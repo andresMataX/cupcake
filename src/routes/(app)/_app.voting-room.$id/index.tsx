@@ -13,6 +13,7 @@ export const Route = createFileRoute('/(app)/_app/voting-room/$id/')({
   },
   loader: async ({ params, context }) => {
     const { id } = params
+
     const { getToken } = context.auth
 
     await context.queryClient.ensureQueryData(
